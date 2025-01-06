@@ -3,19 +3,22 @@
 
 #include <iostream>
 #include "defines.h"
-
+#include "randomize.h"
+#include <vector>
 class Surface{
 
 public:
     Surface();
     ~Surface();
-
-    int surfaceArray[ROWS][COLS];
+;
+    std::vector<int> surfaceVector;
 
     void InitSurface();
     void Print();
+
 private:
 
+    //Randomize randomizer;
 
 };
 
