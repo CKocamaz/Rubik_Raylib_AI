@@ -1,9 +1,15 @@
 #include "surface.h"
-
+// TODO: Fix the functions in the Surface class they should be callable on allSurfaceVector and oneSurfaceVector
 Surface::Surface(){
     //Constructor
     this->InitSurface();
+    this->allSurfaceVector = this->randomizer.colorIntRepresentation;
     this->Print();
+}
+
+Surface::Surface(int i){
+    //Constructor
+    this->oneSurfaceVector.resize(N_OF_SQUARE_ON_SURFACE); 
 }
 
 Surface::~Surface(){
@@ -12,10 +18,10 @@ Surface::~Surface(){
 
 void Surface::InitSurface(){
     //Initialize the surface
-    this->surfaceVector.resize(N_OF_SQUARE_ON_SURFACE * N_OF_SURFACES);
+    this->allSurfaceVector.resize(N_OF_SQUARE_ON_SURFACE * N_OF_SURFACES);
     for(int i = 0; i < N_OF_SQUARE_ON_SURFACE * N_OF_SURFACES; i++){
         
-        this->surfaceVector[i] = 0;
+        this->allSurfaceVector[i] = 0;
         
     }
 }
@@ -34,7 +40,7 @@ void Surface::Print(){
 
             for(int j = 0; j < N_OF_SQUARE_ON_SURFACE; j++){
 
-                std::cout << this->surfaceVector[surfaceIncrement+j] << " ";
+                std::cout << this->allSurfaceVector[surfaceIncrement+j] << " ";
             }
 
             surfaceIndex++;

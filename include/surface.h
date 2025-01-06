@@ -5,20 +5,23 @@
 #include "defines.h"
 #include "randomize.h"
 #include <vector>
+
 class Surface{
 
 public:
-    Surface();
+    Surface();      //Add state to the input...
+    Surface(int i); //Add state to the input...
     ~Surface();
-;
-    std::vector<int> surfaceVector;
+
+    std::vector<int> allSurfaceVector;
+    std::vector<int> oneSurfaceVector;
 
     void InitSurface();
     void Print();
 
 private:
 
-    //Randomize randomizer;
+    Randomize randomizer;
 
 };
 

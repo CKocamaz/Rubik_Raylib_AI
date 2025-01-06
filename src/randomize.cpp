@@ -6,6 +6,7 @@ Randomize::Randomize(){
     this->InitColorPool();
     //this->PrintColorPool();
     this->ShuffleColorPool();
+    this->InitColorIntRepresentation();
 }
 
 Randomize::~Randomize(){
@@ -43,10 +44,11 @@ void Randomize::ShuffleColorPool(){
 
     int randomNumber[N_OF_SURFACES*N_OF_SQUARE_ON_SURFACE - 1];
     int tempIndex = 0;
+    int randomIndex =0;
     for(int i = 0; i<N_OF_SURFACES*N_OF_SQUARE_ON_SURFACE; i++){
 
         std::uniform_int_distribution<> distrib(0, (N_OF_SURFACES*N_OF_SQUARE_ON_SURFACE) - i);
-        int randomIndex = distrib(gen);
+        randomIndex = distrib(gen);
         std::cout << "Random number: " << randomIndex << std::endl;
         tempColorVector[tempIndex] = this->colorPoolVector[randomIndex];
         this->colorPoolVector.erase(this->colorPoolVector.begin() + randomIndex);
@@ -55,4 +57,14 @@ void Randomize::ShuffleColorPool(){
 
     this->colorPoolVector = tempColorVector;
     this->PrintColorPool();
+}
+
+void Randomize::InitColorIntRepresentation(){
+    //Initialize the color pool
+    this->colorIntRepresentation.resize(N_OF_SURFACES*N_OF_SQUARE_ON_SURFACE);
+
+    for(int i = 0; i < N_OF_SQUARE_ON_SURFACE * N_OF_SURFACES; i++){
+        this->colorIntRepresentation[i] = static_cast<int>(this->colorPoolVector[i]);
+    }
+
 }

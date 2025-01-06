@@ -45,12 +45,15 @@ public:
 
     void randomizeColor();
     std::vector<MyColor> colorPoolVector;
-    MyColor colorPool[N_OF_SURFACES*N_OF_SQUARE_ON_SURFACE];
+    std::vector<int> colorIntRepresentation;
+
     void PrintColorPool();
+
 
 private:
     void InitColorPool();
     void ShuffleColorPool();
+    void InitColorIntRepresentation();
 
 };
 

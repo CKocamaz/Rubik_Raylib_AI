@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "randomize.h"
-
+#include "surface.h"
 //------------------------------------------------------------------------------------
 // Program main entry point
 //------------------------------------------------------------------------------------
@@ -24,6 +24,6 @@ int main()
     }
     CloseWindow();
     */
-    Randomize randomize;
+    Surface surf;
     return 0;
 }
