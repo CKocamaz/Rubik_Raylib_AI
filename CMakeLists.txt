@@ -23,9 +23,3 @@ add_executable(${PROJECT_NAME} ${SRC_FILES}) # Adjust source path
 
 # Link the Raylib library
 target_link_libraries(${PROJECT_NAME} ${RAYLIB_LIBRARY})
-
-# Additional configurations
-if (MSVC)
-    # Avoid console window for GUI apps on Windows
-    set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
-endif()
